@@ -8,12 +8,12 @@ document.getElementById("fpsubmit").addEventListener("click", ()=>{
 function bfcompiler(code){
     var bfarray=[0];
     var ptr=0
-    for (i=0; i<code.length;i++){
+    for (let i=0; i<code.length;i++){
         if (code[i]==">"){
             
             ptr++
 
-            if (ptr>i){
+            if (ptr>=bfarray.length){
                 bfarray.push(0)
             }
         }else if (code[i]=="<"){
@@ -25,8 +25,8 @@ function bfcompiler(code){
             bfarray[ptr]++
         }
         else if (code[i]=="-"){
-            if (bfarray[i]==0){
-                bfarray[i]=255
+            if (bfarray[ptr]==0){
+                bfarray[ptr]=255
             }else{
             bfarray[ptr]--}
         }else if(code[i]=="."){
