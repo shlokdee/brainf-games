@@ -5,8 +5,8 @@ document.getElementById("fpsubmit").addEventListener("click", ()=>{
 })
 
 var bfarray=[0];
-
-function bfcompiler(code){
+const sleep = ms => new Promise(res => setTimeout(res, ms))
+async function bfcompiler(code){
     bfarray=[0]
     document.getElementById("textoutput").textContent=""
     var ptr=0
@@ -58,15 +58,16 @@ function bfcompiler(code){
         else if (code[i]=="]"){
             i=loopsi-1
         }
-    }
+    
     const visualiser=document.getElementById("visualiser")
     visualiser.replaceChildren(); 
 for (let i=0; i<bfarray.length; i++){
     const box=document.createElement("div")
     box.classList.add("box")
     box.innerHTML=`<p>${bfarray[i]}</p>`
+    if (i===ptr) box.classList.add("active")
     visualiser.appendChild(box)
 
-}
+}await sleep(document.getElementById("delay").value)}
 }
 

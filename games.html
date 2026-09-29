@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <input type="text" id="fpcode">
-    <button id="fpsubmit">Submit</button>
+    <div class="inp">
+        <textarea id="fpcode"></textarea>
+        <button id="fpsubmit">Submit</button>
+            <input id="delay" type="range" min="0" max="500" value="200" step="10" name="delay">
+            <label for="delay">Adjust the visualiser delay</label>
+    </div>
     <div id="visualiser"></div>
+    
     <p id="textoutput"></p>
     
     <script src="games.js"></script>

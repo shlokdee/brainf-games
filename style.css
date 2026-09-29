@@ -54,3 +54,22 @@ body{
     display:flex;
     margin: 10px;
 }
+
+.active{
+    background-color: slategray;
+}
+#fpcode{
+    width: 40vw;
+    height: 40vh;
+    text-wrap: wrap;
+}
+
+.inp{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inp *{
+    margin: 10px;
+}
