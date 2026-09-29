@@ -4,10 +4,14 @@ document.getElementById("fpsubmit").addEventListener("click", ()=>{
     bfcompiler(codearr)
 })
 
+var bfarray=[0];
 
 function bfcompiler(code){
-    var bfarray=[0];
+    bfarray=[0]
+    document.getElementById("textoutput").textContent=""
     var ptr=0
+    var loopsi=-1
+    var loopei=-1
     for (let i=0; i<code.length;i++){
         if (code[i]==">"){
             
@@ -23,6 +27,11 @@ function bfcompiler(code){
 
         }else if (code[i]=="+"){
             bfarray[ptr]++
+            if (bfarray[ptr]==256){
+                bfarray[ptr]=0
+            }
+            
+
         }
         else if (code[i]=="-"){
             if (bfarray[ptr]==0){
@@ -31,14 +40,33 @@ function bfcompiler(code){
             bfarray[ptr]--}
         }else if(code[i]=="."){
             console.log(bfarray[ptr])
+            document.getElementById("textoutput").textContent+=String.fromCharCode(bfarray[ptr])
         }
 
         else if (code[i]=="["){
-            //TODO loop
+            loopsi=i
+            for (let j=loopsi;j<code.length; j++ ){
+                if (code[j]=="]"){
+                    loopei=j
+                    break;
+                }
+            }
+            if (bfarray[ptr]==0){
+                i=loopei
+            }
         }
         else if (code[i]=="]"){
-            //TODO loop
+            i=loopsi-1
         }
     }
-    console.log(bfarray)
+    const visualiser=document.getElementById("visualiser")
+    visualiser.replaceChildren(); 
+for (let i=0; i<bfarray.length; i++){
+    const box=document.createElement("div")
+    box.classList.add("box")
+    box.innerHTML=`<p>${bfarray[i]}</p>`
+    visualiser.appendChild(box)
+
 }
+}
+
