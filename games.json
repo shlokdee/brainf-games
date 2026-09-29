@@ -1,0 +1,27 @@
+{
+    "fp":{
+        "name": "Free Play",
+        "description": "play freely"
+    },
+    "tbf":{
+        "name": "Text to BF",
+        "description": "convert your text to output bf code"
+    },
+    "sum":{
+        "name": "Sum",
+        "description": "adding numbers"
+    },
+    "mul":{
+        "name": "Multiply",
+        "description": "multiplying numbers"
+    },
+    
+    "rev":{
+        "name": "Reverse",
+        "description": "Reverse the given string"
+    },
+    "max":{
+        "name":"Compare",
+        "description": "Output the bigger of the two numbers"
+    }
+}

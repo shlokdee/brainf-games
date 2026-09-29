@@ -1,8 +1,14 @@
-var games=["freeplay", "sum", "multiplication", "placeholder0","placeholder0","placeholder0","placeholder0"]
+
+
 const gamecards=document.getElementById("gamecards")
-for (let i=0; i<games.length;i++){
+
+
+fetch("games.json")
+.then(res=>res.json())
+.then(games =>{
+for (const i in games){
     const gamecard=document.createElement("div")
     gamecard.classList.add("gamecard")
-    gamecard.innerHTML=`<h3>${games[i]}</h3><a href="games.html?game=${games[i]}">Go there</a>`
+    gamecard.innerHTML=`<h3>${games[i].name}</h3><p>${games[i].description}</p><a href="games.html?game=${i}">Go there</a>`
     gamecards.appendChild(gamecard)
-}
+}})
